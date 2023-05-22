@@ -1,6 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 
+const NewsItem = ({ article }) => {                                             // 아이템 하나를 받아옴
+    const { title, description, url } = article                                 // article 객체를 비구조화 할당
+
+    return (
+        <NewsItemBlock>                                                             
+            {
+                <div className="thumbnail">
+                    <a href={url} target="_blank" rel="noopener noreferrer" >
+                        <img src="https://picsum.photos/200" alt="thumbnail"/>
+                    </a>
+                </div>
+            }
+            <div className="contents">
+                <h2>
+                    <a href={url} target="_blank" rel="noopener noreferrer" >
+                        {title}
+                    </a>
+                </h2>
+                <p>{description}</p>
+            </div>
+        </NewsItemBlock>
+    );
+};
+
+
 const NewsItemBlock = styled.div`
     display: flex;
         .thumbnail {
@@ -29,28 +54,5 @@ const NewsItemBlock = styled.div`
         margin-top: 3rem;
     }
 `;
-
-const NewsItem = ({ article }) => {
-    const { title, description, url, urlToImage } = article
-    return (
-        <NewsItemBlock>
-            {
-                <div className="thumbnail">
-                    <a href={url} target="_blank" rel="noopener noreferrer" >
-                        <img src="https://picsum.photos/200" alt="thumbnail"/>
-                    </a>
-                </div>
-            }
-            <div className="contents">
-                <h2>
-                    <a href={url} target="_blank" rel="noopener noreferrer" >
-                        {title}
-                    </a>
-                </h2>
-                <p>{description}</p>
-            </div>
-        </NewsItemBlock>
-    );
-};
 
 export default NewsItem

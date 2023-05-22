@@ -5,19 +5,6 @@ import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const NewsItemBlock = styled.div`
-    box-sizing: border-box;
-    padding-bottom: 3rem;
-    width: 768px:
-    margin: 0 auto;
-    margin-top: 2rem;
-    @media screen and (max-width: 768px) {
-        wdith: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-`;
-
 const NewsList = () => {
     const [ articles, setArticles ] = useState(null);
     const [ loading , setLoading ] = useState(null);
@@ -60,5 +47,18 @@ const NewsList = () => {
         </NewsItemBlock>
     );
 };
+
+const NewsItemBlock = styled.div`
+    box-sizing: border-box;
+    padding-bottom: 3rem;
+    width: 768px:
+    margin: 0 auto;
+    margin-top: 2rem;
+    @media screen and (max-width: 768px) {
+        wdith: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+`;
 
 export default NewsList;
